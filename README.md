@@ -1,4 +1,3 @@
-# pocketSF
 Team goals
 Individual goals:
 Beautiful application that we can show off.
@@ -40,45 +39,45 @@ Morning breakfast check in ( set goals )
 
 PocketSF Schedule
 
-Thursday
+Thursday (hammer our schedule/tech/plan/exploration)
 1:30pm: Team Lunch
 2:30pm: Team meeting
 7:30pm Scrum meeting
 8:00pm: End day
 
-Friday 
+Friday ( Setting up the meteor framework / complete all views ) 
 8:15am: Breakfast checkin @ Starbucks 3rd street. 
 1:30- 2:30 pm: Team Lunch
 7:30pm Scrum meeting
 8:00pm: End day
 8:30pm: Sushi / Korean food
 
-Saturday 
+Saturday ( the day of the API’s / design ) 
 Work @ Steven’s place (125 San Anselmo ave, San Francisco)
 9:30am: Breakfast checkin
 1:30- 2:30 pm: Team Lunch
 7:00pm Scrum meeting
 7:30pm: Free night activities
 
-Sunday
+Sunday ( design / API half day / MVP met by end of days  ) 
 Work location: TBD
 11am: start working
 7:30pm Scrum meeting
  8:00pm: End day
 
-Monday
+Monday ( mobilization / Safety data layers ) 
 8:15am: Breakfast checkin
 1:30- 2:30 pm: Team Lunch
 7:30pm Scrum meeting
 8:00pm: End day
 
-Tuesday
+Tuesday ( user testing / mobilization / final features) 
 8:15am: Breakfast checkin
 1:30- 2:30 pm: Team Lunch
 7:30pm Scrum meeting
 8:00pm: End day
 
-Wednesday
+Wednesday ( Final three features + additional user/unit testing ) 
 8:15am: Breakfast checkin
 1:30pm: Team Lunch
 7:30pm Scrum meeting
@@ -116,7 +115,7 @@ GOALS FOR DAY
 -define the app 
 	- product road map 
 	-one or two liner that describes its usefulness 
--have a git repo created 
+-have a git repo created X
 -make a decision on the stack (meteor) X
 -scope whats the hardest thing to do X
 - explore and decide on jenkin or travis or neither 
