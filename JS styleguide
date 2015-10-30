@@ -1,0 +1,7 @@
+JS Style Guide for PocketSF:
+~feel free to add to this guide as we pick up more best practices.~
+
+- Properly space all functions as represented below.
+  "#some-property": function () {
+      #some-code
+  },
