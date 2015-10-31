@@ -54,10 +54,11 @@ Friday ( Setting up the meteor framework / complete all views )
 
 Saturday ( the day of the API’s / design ) 
 Work @ Steven’s place (125 San Anselmo ave, San Francisco)
-9:30am: Breakfast checkin
-1:30- 2:30 pm: Team Lunch
+10:30: Checkin at Steven's
+11:00: Start work
+1:30- 2:30pm: Team Lunch
 7:00pm Scrum meeting
-7:30pm: Free night activities
+7:30pm: Free night activities (kumbaya, talent show, etc)
 
 Sunday ( design / API half day / MVP met by end of days  ) 
 Work location: TBD
