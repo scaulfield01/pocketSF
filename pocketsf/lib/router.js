@@ -5,3 +5,7 @@ Router.route('/', function () {
 Router.route('/bikes', function () {
   this.render('bikes');
 });
+
+Router.route('/maps', function () {
+  this.render('maps');
+});
