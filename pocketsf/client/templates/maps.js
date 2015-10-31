@@ -15,7 +15,7 @@ Template.maps.helpers({
     if (GoogleMaps.loaded()) {
       return {
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
-        zoom: 7
+        zoom: 14
       };
     }
   }
@@ -27,15 +27,28 @@ Template.maps.onCreated(function() {
 Meteor.call('getBikeData', function(err,res){
 
     GoogleMaps.ready('exampleMap', function(map) {
-      var myLatLng = new google.maps.LatLng(res.latitude, res.longitude);
-      var marker = new google.maps.Marker({
+
+      for (var i = 0 ; i <  res.length;  i++) {
+        var LatLng = new google.maps.LatLng(res[i].latitude, res[i].longitude)
+
+       var bikeRackMarkers = new google.maps.Marker({
+          position: LatLng,
+          map: map.instance
+
+        });
+      };
+
+      var userMarker = new google.maps.Marker({
         position: map.options.center,
         map: map.instance
       });
-      var bikeRackMarkers = new google.maps.Marker({
-        position: myLatLng,
-        map: map.instance
-      });
+      //
+
+
+      // var bikeRackMarkers = new google.maps.Marker({
+      //   position: myLatLng,
+      //   map: map.instance
+      // });
     });
   });
 });
