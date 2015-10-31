@@ -22,7 +22,6 @@ Template.maps.helpers({
 });
 
 
-
 Template.maps.onCreated(function() {
   GoogleMaps.ready('exampleMap', function(map) {
     console.log(map)
@@ -33,3 +32,6 @@ Template.maps.onCreated(function() {
   });
 });
 
+Meteor.call('getBikeData', function(err,res){
+  console.log(res);
+});
