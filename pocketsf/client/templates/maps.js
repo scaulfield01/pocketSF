@@ -34,13 +34,14 @@ Meteor.call('getBikeData', function(err,res){
        var bikeRackMarkers = new google.maps.Marker({
           position: LatLng,
           map: map.instance
-
         });
       };
 
       var userMarker = new google.maps.Marker({
         position: map.options.center,
-        map: map.instance
+        map: map.instance,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+
       });
       //
 
