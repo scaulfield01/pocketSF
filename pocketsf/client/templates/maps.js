@@ -46,33 +46,53 @@ Meteor.call('getBikeData', function(err,res){
         travelMode: google.maps.TravelMode.DRIVING
       }, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
+          console.log(response)
           directionsDisplay.setDirections(response);
         } else {
           window.alert('Directions request failed due to ' + status);
         }
       });
 
-      for (var i = 0 ; i <  res.length ;  i++) {
-        var LatLng = new google.maps.LatLng(res[i].latitude, res[i].longitude)
-
-
        //  var infowindow = new google.maps.InfoWindow({
        //  content: "Name: " + res[i].name + " <br> Spaces: " + res[i].spaces
        // })
-        var infowindow = new google.maps.InfoWindow({
-         content: "Name: " + res[i].name + " <br> Spaces: " + res[i].spaces
-        });
+         // content: "Name: " + res[i].name + " <br> Spaces: " + res[i].spaces
+        // });
 
-       var marker = new google.maps.Marker({
+        var markers = []
+
+        for (var i = 0 ; i <  res.length ;  i++) {
+          var marker = res[i]
+
+          var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
+
+          var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
-          map: map.instance
-        });
+          map: map.instance,
+          content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces
+          });
 
-       var listener = marker.addListener('click', function(){
-          infowindow.open(map.instance,  marker);
-       })
+          var infowindow = null;
 
-      };
+          infowindow = new google.maps.InfoWindow({
+            content: "holding..."
+          })
+
+          markers.push(bikeParkingMarker)
+        };
+
+          for (var i = 0; i < markers.length; i++) {
+            var marker = markers[i]
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(this.content);
+              infowindow.open(map.instance, this);
+            });
+          };
+
+           // google.maps.event.addListener(marker, 'click', function(){
+           //    infowindow.setContent(this.html);
+           //    infowindow.open(map.instance, this)
+           // })
 
       var userMarker = new google.maps.Marker({
         position: map.options.center,
