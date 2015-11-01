@@ -1,5 +1,6 @@
 Template.maps.onRendered(function() {
   GoogleMaps.load();
+  // Session.set("latitude", "Hey")
 });
 
 Template.maps.helpers({
@@ -15,21 +16,63 @@ Template.maps.helpers({
     if (GoogleMaps.loaded()) {
       return {
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
-        zoom: 17
+        zoom: 14
       };
     }
   }
-});
 
+});
 
 
 Template.maps.onCreated(function() {
-  GoogleMaps.ready('exampleMap', function(map) {
-    console.log(map)
-    var marker = new google.maps.Marker({
-      position: map.options.center,
-      map: map.instance
+
+Meteor.call('getBikeData', function(err,res){
+
+    GoogleMaps.ready('exampleMap', function(map) {
+
+      new google.maps.DirectionsRenderer.setMap(map)
+
+      for (var i = 0 ; i <  res.length ;  i++) {
+        var LatLng = new google.maps.LatLng(res[i].latitude, res[i].longitude)
+
+       //  var infowindow = new google.maps.InfoWindow({
+       //  content: "Name: " + res[i].name + " <br> Spaces: " + res[i].spaces
+       // })
+        var infowindow = new google.maps.InfoWindow({
+         content: "Name: " + res[i].name + " <br> Spaces: " + res[i].spaces
+        });
+
+       var marker = new google.maps.Marker({
+          position: LatLng,
+          map: map.instance
+        });
+
+       var listener = marker.addListener('click', function(){
+          infowindow.open(map.instance,  marker);
+       })
+
+      };
+
+      var userMarker = new google.maps.Marker({
+        position: map.options.center,
+        map: map.instance,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+
+      });
+      // https://maps.googleapis.com/maps/api/directions/output?parameters
+
+
+
+
+      // var bikeRackMarkers = new google.maps.Marker({
+      //   position: myLatLng,
+      //   map: map.instance
+      // });
     });
   });
 });
+
+
+
+
 
