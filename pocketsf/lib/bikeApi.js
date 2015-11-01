@@ -25,10 +25,12 @@ if (Meteor.isServer) {
           var responseLong = response[i].latitude.longitude;
           var responseName = response[i].street_name;
           var responseSpaces = response[i].spaces;
+          var responseAddress = response[i].yr_inst;
           bikeMarker.latitude = responseLat;
           bikeMarker.longitude = responseLong;
           bikeMarker.name = responseName;
           bikeMarker.spaces = responseSpaces;
+          bikeMarker.address = responseAddress;
           bikeMarkers.push(bikeMarker)
     };
       return bikeMarkers;

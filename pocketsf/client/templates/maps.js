@@ -69,7 +69,7 @@ Meteor.call('getBikeData', function(err,res){
           var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces
+          content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a>"
           });
 
           var infowindow = null;
