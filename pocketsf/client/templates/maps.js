@@ -32,6 +32,10 @@ Template.maps.helpers({
 
 Template.maps.onCreated(function() {
 
+Meteor.call('findClientLocation', function(err, res) {
+  console.log(res);
+});
+
 Meteor.call('getBikeData', function(err,res){
 
     GoogleMaps.ready('exampleMap', function(map) {
@@ -69,7 +73,7 @@ Meteor.call('getBikeData', function(err,res){
           var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a>"
+          content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>" + "<a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'>get directions</a>"
           });
 
           var infowindow = null;

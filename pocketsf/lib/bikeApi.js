@@ -48,3 +48,19 @@ if (Meteor.isServer) {
 
   });
 }
+
+// if (Meteor.isClient) {
+
+//   Meteor.methods({
+//     'findClientLocation': function() {
+//       // Make sure the maps API has loaded
+//       var latitude =  Geolocation.currentLocation().coords.latitude;
+
+//       var longitude = Geolocation.currentLocation().coords.longitude;
+
+//       return latitude + ", " +  longitude
+
+//     };
+//   })
+
+// };
