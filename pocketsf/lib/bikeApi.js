@@ -32,7 +32,17 @@ if (Meteor.isServer) {
           bikeMarkers.push(bikeMarker)
     };
       return bikeMarkers;
-    }
+    },
+    'pathGoogleMapsDirection': function () {
+
+      // var origin = 37.75087429, -122.42019976)
+      // var destination = (37.75402900, -122.41897400)
+      console.log("hi")
+
+      var path = "https://maps.googleapis.com/maps/api/directions?key=AIzaSyD0g7OPjleD0G_TBWIgjmdJc71J9dwREEU&origin=new+york&destination=baltimore"
+      var response = HTTP.get(path);
+      return response
+  }
 
   });
 }
