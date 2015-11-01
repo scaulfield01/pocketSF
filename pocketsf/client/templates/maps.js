@@ -42,7 +42,7 @@ Meteor.call('getBikeData', function(err,res){
 
       directionsService.route({
         origin: {lat: 37.77, lng: -122.447},
-        destination: {lat: 37.768, lng: -122.511},
+        destination: "125 San Anselmo ave"+", San Francisco, CA",
         travelMode: google.maps.TravelMode.DRIVING
       }, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
@@ -75,7 +75,7 @@ Meteor.call('getBikeData', function(err,res){
           var infowindow = null;
 
           infowindow = new google.maps.InfoWindow({
-            content: "holding..."
+            content: "loading..."
           })
 
           markers.push(bikeParkingMarker)
