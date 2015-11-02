@@ -5,6 +5,14 @@ Template.maps.onRendered(function() {
 
 Template.maps.helpers({
 
+  formRender: function(){
+    if (Session.get("destinationRender")){
+      return true;
+    } else {
+      return false;
+    }
+  },
+
   exampleMapOptions: function() {
     // Make sure the maps API has loaded
     var findClientLatitude = function() {
@@ -21,7 +29,7 @@ Template.maps.helpers({
       // initialize map
       return {
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
-        zoom: 14
+        zoom: 16
       };
 
     }
@@ -31,31 +39,30 @@ Template.maps.helpers({
 
 
 Template.maps.onCreated(function() {
-
-Meteor.call('findClientLocation', function(err, res) {
-  console.log(res);
-});
+// Meteor.call('findClientLocation', function(err, res) {
+// //   console.log(res);
+// });
 
 Meteor.call('getBikeData', function(err,res){
 
     GoogleMaps.ready('exampleMap', function(map) {
 
-      var directionsService = new google.maps.DirectionsService;
-      var directionsDisplay = new google.maps.DirectionsRenderer;
-      directionsDisplay.setMap(map.instance);
+      // var directionsService = new google.maps.DirectionsService;
+      // var directionsDisplay = new google.maps.DirectionsRenderer;
+      // directionsDisplay.setMap(map.instance);
 
-      directionsService.route({
-        origin: {lat: 37.77, lng: -122.447},
-        destination: "125 San Anselmo ave"+", San Francisco, CA",
-        travelMode: google.maps.TravelMode.DRIVING
-      }, function(response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-          console.log(response)
-          directionsDisplay.setDirections(response);
-        } else {
-          window.alert('Directions request failed due to ' + status);
-        }
-      });
+      // directionsService.route({
+      //   origin: {lat: 37.77, lng: -122.447},
+      //   destination: "125 San Anselmo ave"+", San Francisco, CA",
+      //   travelMode: google.maps.TravelMode.DRIVING
+      // }, function(response, status) {
+      //   if (status == google.maps.DirectionsStatus.OK) {
+      //     console.log(response)
+      //     directionsDisplay.setDirections(response);
+      //   } else {
+      //     window.alert('Directions request failed due to ' + status);
+      //   }
+      // });
 
        //  var infowindow = new google.maps.InfoWindow({
        //  content: "Name: " + res[i].name + " <br> Spaces: " + res[i].spaces

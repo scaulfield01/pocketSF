@@ -1,5 +1,8 @@
-// Template.bikes.helpers({
-//   path: function () {
-//     return Router.path('bikes', this.bike);
-//   }
-// })
+Template.bikes.events({
+  "click .bike-destination": function (e) {
+    Session.set("destinationRender", true)
+  },
+  "click .bike-nearby": function (e) {
+    Session.set("destinationRender", false)
+  }
+})

@@ -1,4 +1,10 @@
 <template name="maps">
+ {{#if formRender }}
+  <form class="address">
+    <input type="text" name="destination" placeholder="Type your destination">
+    <input type="submit" value="Direct Me">
+  </form>
+ {{/if}}
  <div class="mapper">
    <div class="map-container">
       {{> googleMap name="exampleMap" options=exampleMapOptions}}
