@@ -3,34 +3,13 @@ Template.maps.onRendered(function() {
 });
 
 Template.maps.helpers({
-  destinationMapOptions: function () {
-    var destLat = Session.get("userLat");
-    var destLng = Session.get("userLng");
 
-  if (GoogleMaps.loaded()) {
-     return {
-        center: new google.maps.LatLng(destLat, destLng),
-        zoom: 16
-     }
-  }
-
-  },
-  formRender: function(){
-    if (Session.get("destinationRender")){
-      return true;
-    } else {
-      return false;
-    }
-  },
   nearbyMapOptions: function() {
     // Make sure the maps API has loaded
     var findClientLatitude = function() {
     return Geolocation.currentLocation().coords.latitude};
     var findClientLongitude = function() {
-    return Geolocation.currentLocation().coords.longitude};
-    var renderChoice = function () {
-    return Session.get("destinationRender")
-    }
+    return Geolocation.currentLocation().coords.longitude}
 
     if (GoogleMaps.loaded()) {
       return {
@@ -88,21 +67,6 @@ Template.maps.onCreated(function() {
     });
   });
 });
-
-Template.maps.events({
-  "submit .address": function(e){
-    e.preventDefault();
-    var text = e.target.destination.value;
-    // Session.set('userDestination', text);
-    Meteor.call('findGeoCode', text, function(err, res) {
-      Session.set("userLat", res[0].latitude)
-      Session.set("userLng", res[0].longitude)
-    })
-  }
-});
-
-
-
 
 
 // directions code --save
