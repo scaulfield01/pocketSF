@@ -22,3 +22,4 @@ iron:router
 dburles:google-maps
 mdg:geolocation
 http
+aldeed:geocoder

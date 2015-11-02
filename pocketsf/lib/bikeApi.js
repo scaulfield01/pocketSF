@@ -1,6 +1,19 @@
 if (Meteor.isServer) {
   Meteor.methods({
     // The method expects a valid IPv4 address
+    'findGeoCode': function (){
+        var userDestination = Session.get('userDestination' )
+        var geo = new GeoCoder()
+        var result = geo.geocode(userDestination)
+
+        console.log("********************" + result)
+        // return result
+
+    },
+
+
+
+
     'getBikeData': function () {
       // console.log('Method.getBikeData');
       // Construct the API URL

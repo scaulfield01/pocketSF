@@ -28,6 +28,9 @@ Template.maps.helpers({
 
       // initialize map
       return {
+        // if session renderDesitination == true
+        // center : new gooogle map lat ling(destination input from form)
+        //else this thing here ....
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
         zoom: 16
       };
@@ -39,9 +42,9 @@ Template.maps.helpers({
 
 
 Template.maps.onCreated(function() {
-// Meteor.call('findClientLocation', function(err, res) {
-// //   console.log(res);
-// });
+Meteor.call('findGeoCode', function(err, res) {
+  console.log(res);
+});
 
 Meteor.call('getBikeData', function(err,res){
 
@@ -124,6 +127,14 @@ Meteor.call('getBikeData', function(err,res){
   });
 });
 
+
+Template.maps.events({
+  "submit .address": function(e){
+    e.preventDefault();
+      var text = e.target.destination.value;
+      Session.set('userDestination', text)
+  }
+})
 
 
 
