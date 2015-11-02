@@ -1,18 +1,13 @@
 if (Meteor.isServer) {
   Meteor.methods({
-    // The method expects a valid IPv4 address
-    'findGeoCode': function (){
-        var userDestination = Session.get('userDestination' )
-        var geo = new GeoCoder()
-        var result = geo.geocode(userDestination)
 
-        console.log("********************" + result)
-        // return result
-
-    },
-
-
-
+    'findGeoCode': function (e){
+         var userDestination = e;
+         var geo = new GeoCoder();
+         var result = geo.geocode(userDestination);
+         // console.log("hello from findGeoCode!")
+         return result
+     },
 
     'getBikeData': function () {
       // console.log('Method.getBikeData');
@@ -63,17 +58,6 @@ if (Meteor.isServer) {
 }
 
 // if (Meteor.isClient) {
-
 //   Meteor.methods({
-//     'findClientLocation': function() {
-//       // Make sure the maps API has loaded
-//       var latitude =  Geolocation.currentLocation().coords.latitude;
-
-//       var longitude = Geolocation.currentLocation().coords.longitude;
-
-//       return latitude + ", " +  longitude
-
-//     };
 //   })
-
 // };

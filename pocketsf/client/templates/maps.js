@@ -4,7 +4,6 @@ Template.maps.onRendered(function() {
 });
 
 Template.maps.helpers({
-
   formRender: function(){
     if (Session.get("destinationRender")){
       return true;
@@ -12,40 +11,58 @@ Template.maps.helpers({
       return false;
     }
   },
+// nearbyMapOptions: function () {
+//   var findClientLatitude = function() {
+//     return Geolocation.currentLocation().coords.latitude};
 
-  exampleMapOptions: function() {
-    // Make sure the maps API has loaded
-    var findClientLatitude = function() {
-      return Geolocation.currentLocation().coords.latitude};
+//   var findClientLongitude = function() {
+//     return Geolocation.currentLocation().coords.longitude};
 
-    var findClientLongitude = function() {
-      return Geolocation.currentLocation().coords.longitude};
-
-    if (GoogleMaps.loaded()) {
-
-      // create directions route
+//   var getLat = Session.get("userLat")
+//   var getLng = Session.get("userLng")
 
 
-      // initialize map
+//   // var renderChoice = function () {
+//   //   return Session.get("destinationRender")
+//   // }
+
+//   if (GoogleMaps.loaded()) {
+
+//     return {
+//       center: new google.maps.LatLng(getLat, getLng),
+//       zoom: 16
+//     }
+
+//   }
+
+// },
+destinationMapOptions: function() {
+  // Make sure the maps API has loaded
+  var findClientLatitude = function() {
+    return Geolocation.currentLocation().coords.latitude};
+
+  var findClientLongitude = function() {
+    return Geolocation.currentLocation().coords.longitude};
+
+
+  var renderChoice = function () {
+    return Session.get("destinationRender")
+  }
+
+  if (GoogleMaps.loaded()) {
+
       return {
-        // if session renderDesitination == true
-        // center : new gooogle map lat ling(destination input from form)
-        //else this thing here ....
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
         zoom: 16
-      };
+      }
 
-    }
-  }
+  };
+}
 
 });
 
 
 Template.maps.onCreated(function() {
-Meteor.call('findGeoCode', function(err, res) {
-  console.log(res);
-});
-
 Meteor.call('getBikeData', function(err,res){
 
     GoogleMaps.ready('exampleMap', function(map) {
@@ -103,39 +120,25 @@ Meteor.call('getBikeData', function(err,res){
             });
           };
 
-           // google.maps.event.addListener(marker, 'click', function(){
-           //    infowindow.setContent(this.html);
-           //    infowindow.open(map.instance, this)
-           // })
-
       var userMarker = new google.maps.Marker({
         position: map.options.center,
         map: map.instance,
         icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
 
       });
-      // https://maps.googleapis.com/maps/api/directions/output?parameters
-
-
-
-
-      // var bikeRackMarkers = new google.maps.Marker({
-      //   position: myLatLng,
-      //   map: map.instance
-      // });
     });
   });
 });
-
 
 Template.maps.events({
   "submit .address": function(e){
     e.preventDefault();
       var text = e.target.destination.value;
-      Session.set('userDestination', text)
+      // Session.set('userDestination', text);
+      Meteor.call('findGeoCode', text, function(err, res) {
+        Session.set("userLat", res[0].latitude)
+        Session.set("userLng", res[0].longitude)
+      })
+
   }
-})
-
-
-
-
+});
