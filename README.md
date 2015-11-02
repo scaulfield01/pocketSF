@@ -66,13 +66,13 @@ Work location: TBD
 7:30pm Scrum meeting
  8:00pm: End day
 
-Monday ( mobilization / Safety data layers ) 
+Monday ( front-end frame work / additional data layers / destination-centering ) 
 8:15am: Breakfast checkin
 1:30- 2:30 pm: Team Lunch
 7:30pm Scrum meeting
 8:00pm: End day
 
-Tuesday ( user testing / mobilization / final features) 
+Tuesday ( user testing / ios-ify, android-ify / final features) 
 8:15am: Breakfast checkin
 1:30- 2:30 pm: Team Lunch
 7:30pm Scrum meeting
