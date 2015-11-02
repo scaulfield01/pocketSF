@@ -3,6 +3,18 @@ Template.maps.onRendered(function() {
 });
 
 Template.maps.helpers({
+  destinationMapOptions: function () {
+    var destLat = Session.get("userLat");
+    var destLng = Session.get("userLng");
+
+  if (GoogleMaps.loaded()) {
+     return {
+        center: new google.maps.LatLng(destLat, destLng),
+        zoom: 16
+     }
+  }
+
+  },
   formRender: function(){
     if (Session.get("destinationRender")){
       return true;
@@ -10,7 +22,7 @@ Template.maps.helpers({
       return false;
     }
   },
-  destinationMapOptions: function() {
+  nearbyMapOptions: function() {
     // Make sure the maps API has loaded
     var findClientLatitude = function() {
     return Geolocation.currentLocation().coords.latitude};
