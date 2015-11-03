@@ -73,7 +73,7 @@ Monday ( front-end frame work / additional data layers / destination-centering )
 8:00pm: End day
 
 Tuesday ( user testing / ios-ify, android-ify / final features) 
-8:15am: Breakfast checkin
+8:30am: Breakfast checkin (Fearless Cafe)
 1:30- 2:30 pm: Team Lunch
 7:30pm Scrum meeting
 8:00pm: End day
