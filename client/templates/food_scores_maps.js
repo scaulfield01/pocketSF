@@ -23,7 +23,7 @@ Template.foodScoresMaps.helpers({
 Template.foodScoresMaps.onCreated(function(){
   GoogleMaps.ready('foodScoresMap', function(map) {
 
-    var markers = FoodScores.find();
+    var markers = FoodScores.fijhnd();
 
     var userMarker = new google.maps.Marker({
       position: map.options.center,
