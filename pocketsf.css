@@ -1,12 +1,16 @@
 /* CUSTOM */
-.home-icons {
-  background-color: red;
+p {
+  font-family: Futura, 'Open Sans', sans-serif;
+}
+
+/*.home-icons {
+  background-color: white;
   width: 7em;
   height: 7em;
   padding: 1em;
   text-align: center;
   border: 5px black solid;
-}
+}*/
 
 .map-container{
   padding-top: 50px;
@@ -20,23 +24,18 @@
   background-size: cover;
 }
 
-/*.home-container {
-  background-image: url('/images/main-splash.jpeg');
-  background-repeat: no-repeat;
-  height: 80em;
-}*/
-
 body {
 background: url('/images/main-splash.jpeg') no-repeat center center fixed;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
-z-index: 95
+z-index: 95;
+padding-top:50px;
 }
 
 .jumbotron {
-  background-color: transparent;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1),  rgba(0, 0, 0, 0));
 }
 
 .container {
@@ -49,9 +48,9 @@ h2 {
 
 /*icons*/
 
-.paintbrush-icon {
-  height: 20px;
-  width: 20px;
+span.glyphicon-glyphicon-menu-right {
+  font-size: 3em;
+  color: black;
 }
 
 span.glyphicon-cutlery {
@@ -66,8 +65,14 @@ span.glyphicon-picture {
 }
 
 .menu-form {
-  background-color: yellow;
-  width: 100%;
+  display: block;
+  vertical-align: center;
   text-align: center;
-  margin-top: 300px
+  margin-top: 12em;
+}
+
+.thumbnail-image {
+  width: 300px;
+  height: 200px;
+  border: 1px black solid;
 }
