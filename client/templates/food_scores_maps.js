@@ -1,4 +1,5 @@
 Template.foodScoresMaps.onRendered(function () {
+  Meteor.call('getFoodScoresData');
   GoogleMaps.load();
 });
 
