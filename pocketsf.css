@@ -69,3 +69,9 @@ span.glyphicon-picture {
   text-align: center;
   margin-top: 12em;
 }
+
+.thumbnail-image {
+  width: 300px;
+  height: 200px;
+  border: 1px black solid;
+}
