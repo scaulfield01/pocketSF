@@ -2,14 +2,15 @@
 p {
   font-family: Futura, 'Open Sans', sans-serif;
 }
-.home-icons {
+
+/*.home-icons {
   background-color: white;
   width: 7em;
   height: 7em;
   padding: 1em;
   text-align: center;
   border: 5px black solid;
-}
+}*/
 
 .map-container{
   width:100%;
@@ -45,6 +46,11 @@ h2 {
 }
 
 /*icons*/
+
+span.glyphicon-glyphicon-menu-right {
+  font-size: 3em;
+  color: black;
+}
 
 span.glyphicon-cutlery {
   font-size: 3em;
