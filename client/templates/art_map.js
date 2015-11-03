@@ -20,7 +20,7 @@ Template.artmap.helpers({
 
 
 Template.artmap.onCreated(function() {
-debugger
+
   Meteor.call('getArtData', function(err,res){
     var arts = res
 
@@ -32,7 +32,7 @@ debugger
 
         var marker = res[i]
         var LatLng = new google.maps.LatLng(marker.location[1], marker.location[0])
-        debugger
+
         var artMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
