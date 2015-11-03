@@ -12,9 +12,9 @@ Meteor is an opportunity
 Stephen wishes to work on product management
 Keep it mellow
 Submit the app to the city
- Data science 
-Meteor stack to learn about the stack . 
-EXPLORE THE DATA AVAILABLE 
+Data science (meh)
+Learn more about Meteor stack 
+Explore Open Data SF
 
 How to use the data/brainstorming the product:
 
@@ -78,10 +78,11 @@ Tuesday ( user testing / ios-ify, android-ify / final features)
 7:30pm Scrum meeting
 8:00pm: End day
 
-Wednesday ( Final three features + additional user/unit testing ) 
+Wednesday ( Final three features + additional user/unit testing + Submit app to the city) 
 8:15am: Breakfast checkin
 1:30pm: Team Lunch
-7:30pm Scrum meeting
+6:00pm Scrum meeting
+6:30pm: Team dinner hosted by Pocket SF
 
 Git workflow:
 One person to merge pull requests. (Stephen)
