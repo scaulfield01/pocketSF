@@ -1,8 +1,8 @@
-Template.destinations.onRendered(function() {
+Template.bikeDestinations.onRendered(function() {
   GoogleMaps.load();
 });
 
-Template.destinations.helpers({
+Template.bikeDestinations.helpers({
   destinationsMapOptions: function () {
     var destLat = function() {
       if(Session.get("userLat")) {
@@ -28,7 +28,7 @@ Template.destinations.helpers({
   }
 });
 
-Template.destinations.onCreated(function() {
+Template.bikeDestinations.onCreated(function() {
 
   Meteor.call('getBikeData', function(err,res){
     GoogleMaps.ready('destinationsMap', function(map) {
