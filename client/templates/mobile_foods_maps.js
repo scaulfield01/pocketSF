@@ -1,8 +1,8 @@
-Template.mobileFoodsMap.onRendered(function () {
+Template.mobileFoodsMaps.onRendered(function () {
   GoogleMaps.load();
 });
 
-Template.mobileFoodsMap.helpers({
+Template.mobileFoodsMaps.helpers({
   mobileFoodsMapOptions: function () {
     var findClientLatitude = function() {
       return Geolocation.currentLocation().coords.latitude
@@ -20,13 +20,12 @@ Template.mobileFoodsMap.helpers({
   }
 });
 
-Template.mobileFoodsMap.onCreated(function(){
+Template.mobileFoodsMaps.onCreated(function(){
 
 
     GoogleMaps.ready('mobileFoodsMap', function(map) {
 
       Meteor.call('getMobileFoodData', function(err, res){
-
 
 
         var markers = [];

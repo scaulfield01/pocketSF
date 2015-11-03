@@ -1,8 +1,8 @@
-Template.maps.onRendered(function() {
+Template.bikeMaps.onRendered(function() {
   GoogleMaps.load();
 });
 
-Template.maps.helpers({
+Template.bikeMaps.helpers({
 
   nearbyMapOptions: function() {
     // Make sure the maps API has loaded
@@ -21,7 +21,7 @@ Template.maps.helpers({
 });
 
 
-Template.maps.onCreated(function() {
+Template.bikeMaps.onCreated(function() {
 
   // retreive array of SF bike-rack objects
   GoogleMaps.ready('exampleMap', function(map) {
