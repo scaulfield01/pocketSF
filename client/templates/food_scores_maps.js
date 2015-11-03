@@ -1,4 +1,5 @@
 Template.foodScoresMaps.onRendered(function () {
+
   GoogleMaps.load();
 });
 
@@ -21,6 +22,7 @@ Template.foodScoresMaps.helpers({
 
 
 Template.foodScoresMaps.onCreated(function(){
+  Meteor.call('getFoodScoresData');
   GoogleMaps.ready('foodScoresMap', function(map) {
 
     var markers = FoodScores.find();
@@ -37,7 +39,7 @@ Template.foodScoresMaps.onCreated(function(){
       var foodScoreMarker = new google.maps.Marker({
         position: LatLng,
         map: map.instance,
-        content: "<strong>Name:</strong>" + marker.name + "<br><strong>Address:</strong> " + marker.address + "<br><strong>Risk Level:</strong> " + marker.risk_category + "<br><strong>Score:</strong> " + marker.insp_score + "<br><strong>Inspection Results:</strong> " + marker.insp_description
+        content: "<strong>Name:</strong> " + marker.name + "<br><strong>Address:</strong> " + marker.address + "<br><strong>Risk Level:</strong> " + marker.risk_category + "<br><strong>Score:</strong> " + marker.insp_score + "<br><strong>Inspection Results:</strong> " + marker.insp_description
       });
 
       var infowindow = null;
