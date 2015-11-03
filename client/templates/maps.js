@@ -24,10 +24,10 @@ Template.maps.helpers({
 Template.maps.onCreated(function() {
 
   // retreive array of SF bike-rack objects
-  Meteor.call('getBikeData', function(err,res){
-
-    GoogleMaps.ready('exampleMap', function(map) {
+  GoogleMaps.ready('exampleMap', function(map) {
+    Meteor.call('getBikeData', function(err, res){
       // create array of markers
+      console.log("hi")
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
