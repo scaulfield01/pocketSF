@@ -24,13 +24,25 @@ Template.moviesMap.helpers({
 Template.moviesMap.onCreated(function() {
 
   GoogleMaps.ready('moviesMap', function(map) {
+
+
+
+
     Meteor.call('getMoviesData', function(err, res){
-      console.log(res)
-      debugger
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
-        var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
+
+        Meteor.call('findGeoCode', marker.location, function(error, result){
+        debugger
+        if(error){
+            console.log(error);
+        } else {
+            console.log(result);
+        }
+    });
+
+
 
         var moviesMarker = new google.maps.Marker({
           position: LatLng,
