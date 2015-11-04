@@ -27,7 +27,6 @@ Template.bikeMaps.onCreated(function() {
   GoogleMaps.ready('exampleMap', function(map) {
     Meteor.call('getBikeData', function(err, res){
       // create array of markers
-      console.log("hi")
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]

@@ -21,28 +21,42 @@ Template.moviesMap.helpers({
 
 Template.moviesMap.onCreated(function() {
 
-  Meteor.call('getMoviesData', function(err,res){
-   debugger
     GoogleMaps.ready('moviesMap', function(map) {
-
-      var markers = []
-      for (var i = 0 ; i <  res.length ;  i++) {
-        var marker = res[i]
-        // var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-        var movieMarker = new google.maps.Marker({
+      var markers = MovieLocations.find();
+      var userMarker = new google.maps.Marker({
+        position: map.options.center,
+        map: map.instance,
+        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+      });
+      markers.forEach(function(marker) {
+        debugger
+        var LatLng = new google.maps.LatLng(marker.movieGeo.latitude, marker.movieGeo.longitude);
+        debugger
+        var movieLocationMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
+          content: "<strong>Movie Title</strong> + "
         });
-
-      var userMarker = new google.maps.Marker({
-      position: map.options.center,
-      map: map.instance,
-      icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
       });
 
-    };
+        var infowindow = null;
+        infowindow = new google.maps.InfoWindow({
+          content: "loading..."
+        })
+        google.maps.event.addListener(movieLocationMarker, 'click', function() {
+          infowindow.setContent(this.content);
+          infowindow.open(map.instance, this);
   });
 });
-});
+      // for (var i = 0 ; i <  res.length ;  i++) {
+
+      //   var marker = res[i]
+      //   // var filmGeocode = findGeoCode(marker.location)
+
+      //   var LatLng = new google.maps.LatLng(33, 122)
+      //   var movieMarker = new google.maps.Marker({
+      //     position: LatLng,
+      //     map: map.instance
+
 
 
