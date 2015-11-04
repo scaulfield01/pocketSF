@@ -1,6 +1,6 @@
 Template.foodScoresMaps.onRendered(function () {
-
   GoogleMaps.load();
+
 });
 
 Template.foodScoresMaps.helpers({
@@ -22,7 +22,7 @@ Template.foodScoresMaps.helpers({
 
 
 Template.foodScoresMaps.onCreated(function(){
-  Meteor.call('getFoodScoresData');
+
   GoogleMaps.ready('foodScoresMap', function(map) {
 
     var markers = FoodScores.find();
@@ -35,10 +35,20 @@ Template.foodScoresMaps.onCreated(function(){
 
 
     markers.forEach(function (marker) {
+
+      if (marker.insp_score >= 95) {
+          var icon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+      } else if (marker.insp_score >= 90) {
+          var icon = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+      } else {
+          var icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+      }
+
       var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude);
       var foodScoreMarker = new google.maps.Marker({
         position: LatLng,
         map: map.instance,
+        icon: icon,
         content: "<strong>Name:</strong> " + marker.name + "<br><strong>Address:</strong> " + marker.address + "<br><strong>Risk Level:</strong> " + marker.risk_category + "<br><strong>Score:</strong> " + marker.insp_score + "<br><strong>Inspection Results:</strong> " + marker.insp_description
       });
 
