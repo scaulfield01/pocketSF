@@ -1,7 +1,5 @@
 Template.foodScoresMaps.onRendered(function () {
-  Meteor.call('getFoodScoresData');
   GoogleMaps.load();
-
 });
 
 Template.foodScoresMaps.helpers({
@@ -25,7 +23,6 @@ Template.foodScoresMaps.helpers({
 Template.foodScoresMaps.onCreated(function(){
 
   GoogleMaps.ready('foodScoresMap', function(map) {
-
     var markers = FoodScores.find();
 
     var userMarker = new google.maps.Marker({
@@ -62,6 +59,7 @@ Template.foodScoresMaps.onCreated(function(){
         infowindow.open(map.instance, this);
       });
     });
+    markers = {}
 
 
     // for (var i = 0; i < foodScoreMarkers.length; i++) {
