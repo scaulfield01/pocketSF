@@ -30,6 +30,18 @@ Template.bikeDestinations.helpers({
 
 Template.bikeDestinations.onCreated(function() {
 
+    var destLat = function() {
+      if(Session.get("userLat")) {
+        return Session.get("userLat");
+      }
+    };
+
+    var destLng = function() {
+      if(Session.get("userLng")) {
+        return Session.get("userLng");
+      }
+    };
+
   Meteor.call('getBikeData', function(err,res){
     GoogleMaps.ready('destinationsMap', function(map) {
 
@@ -40,7 +52,7 @@ Template.bikeDestinations.onCreated(function() {
         var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + " San Francisco, CA"+ "'>" + marker.address + " San Francisco, CA" + "</a>"
+          content: "<strong>Name:</strong> " + marker.name + " <br><strong> Spaces:</strong> " + marker.spaces + "<br> <strong>Address: </strong><a href='http://maps.google.com/?q=" + marker.address + " San Francisco, CA"+ "'>" + marker.address + " San Francisco, CA" + "</a><br><a href='https://www.google.com/maps/dir/" + destLat() + ", " + destLng() + "/" + marker.address + "'><strong>Get Directions<strong></a>"
         });
 
         var infowindow = null;

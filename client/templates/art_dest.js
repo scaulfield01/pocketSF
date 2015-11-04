@@ -52,7 +52,7 @@ Template.artDest.onCreated(function() {
         var artMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "Title: " + marker.title + "<br> Artist: " + marker.artist + "<br> Created: " + marker.created + "<br> Description:" + marker.description + "<br><a href='https://www.google.com/maps/dir/" + destLat() + ", " + destLng()  + "/" + marker.location[1] + ", " + marker.location[0] + "'>get directions</a>"
+          content: "<strong>Title: </strong>" + marker.title + "<br> <strong>Artist: </strong>" + marker.artist + "<br> <strong>Created: </strong>" + marker.created + "<br> <strong>Description:</strong>" + marker.description + "<br><a href='https://www.google.com/maps/dir/" + destLat() + ", " + destLng()  + "/" + marker.location[1] + ", " + marker.location[0] + "'><strong>get directions</strong></a>"
         });
 
         var infowindow = null;

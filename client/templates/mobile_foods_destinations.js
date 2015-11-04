@@ -47,7 +47,7 @@ Template.mobileFoodsDestinations.onCreated(function() {
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
-        var content = "Vendor: " + marker.vendor + " <br> Info: " + marker.info + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>Hours: " + marker.startTime + "- " + marker.endTime + "<br>Day(s) Open: " + marker.dayOfWeek + "<br><a href='https://www.google.com/maps/dir/" + destLat() + ", " + destLng() + "/" + marker.address + "'>get directions</a>"
+        var content = "Vendor: " + marker.vendor + " <br> Info: " + marker.info + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>Hours: " + marker.startTime + "- " + marker.endTime + "<br>Day(s) Open: " + marker.dayOfWeek + "<br><a href='https://www.google.com/maps/dir/" + destLat() + ", " + destLng() + "/" + marker.address + "'><strong>get directions</strong></a>"
         var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
         var foodDestinationMarker = new google.maps.Marker({
           position: LatLng,
