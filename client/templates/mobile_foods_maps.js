@@ -22,11 +22,9 @@ Template.mobileFoodsMaps.helpers({
 
 Template.mobileFoodsMaps.onCreated(function(){
 
-
     GoogleMaps.ready('mobileFoodsMap', function(map) {
 
       Meteor.call('getMobileFoodData', function(err, res){
-
 
         var markers = [];
         for (var i = 0 ; i <  res.length ;  i++) {

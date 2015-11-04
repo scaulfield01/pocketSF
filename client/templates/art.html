@@ -1,13 +1,35 @@
 <template name="art">
-  <div class="menu-form">
-    <p>Find bike parking</p>
-    <button class="art-nearby">
-      <a href="/artmap">Nearby</a>
-    </button>
-    <p>or</p>
-    <form class="address">
-      <input type="text" name="destination" placeholder="Type your destination">
-      <input type="submit" value="Direct Me">
-    </form>
+  <div class="container">
+
+    <h1>Find public art installations</h1>
+    <ul class="list-group">
+      <li>
+        <a href="/artmap"><button class="bike-nearby btn btn-primary">Nearby</button></a>
+      </li>
+      <li>
+        <form class="form-inline address" role="search">
+          <div class="form-group">
+            <input type="text" name="destination" class="form-control" placeholder="Type your destination">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </li>
+    </ul>
+
+<!--     <div class="row">
+      <div class="col-sm-4">
+      <a href="/artmap"><button class="bike-nearby btn btn-primary">Nearby</button></a>
+      </div>
+
+      <div class="col-sm-4">
+        <form class="form-inline address" role="search">
+          <div class="form-group">
+            <input type="text" name="destination" class="form-control" placeholder="Type your destination">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div> -->
+
   </div>
 </template>
