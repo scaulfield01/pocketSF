@@ -1,17 +1,17 @@
 <template name="art">
-  <div class="container">
-
-    <h1>Find public art installations</h1>
+  <div class="container well">
+    <h1>Find public art</h1>
     <ul class="list-group">
       <li>
-        <a href="/artmap"><button class="bike-nearby btn btn-primary">Nearby</button></a>
-      </li>
-      <li>
+        <a href="/artmap">
+          <button class="bike-nearby btn btn-lg btn-primary">Nearby</button>
+        </a>
+        <p>or</p>
         <form class="form-inline address" role="search">
           <div class="form-group">
             <input type="text" name="destination" class="form-control" placeholder="Type your destination">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default submit">Submit</button>
         </form>
       </li>
     </ul>
