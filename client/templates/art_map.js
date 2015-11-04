@@ -25,21 +25,19 @@ Template.artmap.onCreated(function() {
     var arts = res
 
     GoogleMaps.ready('artMaps', function(map) {
-  console.log(arts)
+
       var markers = []
 
       for (var i = 0 ; i <  arts.length ;  i++) {
 
         var marker = res[i]
+        var content = "Title: " + marker.title + "<br> Artist: " + marker.artist + "<br> Created: " + marker.created + "<br> Description:" + marker.description + "<br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.location[1] + ", " + marker.location[0] + "'>get directions</a>"
         var LatLng = new google.maps.LatLng(marker.location[1], marker.location[0])
 
         var artMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content:
-          "Title: " + marker.title + "<br> Artist: " + marker.artist + "<br> Created: " + marker.created + "<br> Description:" + marker.description + "<br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'>get directions</a>"
-
-
+          content: content
 
         });
 

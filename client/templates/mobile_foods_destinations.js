@@ -32,14 +32,27 @@ Template.mobileFoodsDestinations.onCreated(function() {
   Meteor.call('getMobileFoodData', function(err,res){
     GoogleMaps.ready('foodsDestinationsMap', function(map) {
 
+    var destLat = function() {
+      if(Session.get("userLat")) {
+        return Session.get("userLat");
+      }
+    };
+
+    var destLng = function() {
+      if(Session.get("userLng")) {
+        return Session.get("userLng");
+      }
+    };
+
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
+        var content = "Vendor: " + marker.vendor + " <br> Info: " + marker.info + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>Hours: " + marker.startTime + "- " + marker.endTime + "<br>Day(s) Open: " + marker.dayOfWeek + "<br><a href='https://www.google.com/maps/dir/" + destLat() + ", " + destLng() + "/" + marker.address + "'>get directions</a>"
         var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
         var foodDestinationMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "Vendor: " + marker.vendor + " <br> Info: " + marker.info + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>Hours: " + marker.startTime + "- " + marker.endTime + "<br>Day(s) Open: " + marker.dayOfWeek + "<br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'>get directions</a>"
+          content: content
         });
 
         var infowindow = null;

@@ -33,6 +33,18 @@ Template.artDest.onCreated(function() {
   Meteor.call('getArtData', function(err,res){
     GoogleMaps.ready('artDestMap', function(map) {
 
+    var destLat = function() {
+      if(Session.get("userLat")) {
+        return Session.get("userLat");
+      }
+    };
+
+    var destLng = function() {
+      if(Session.get("userLng")) {
+        return Session.get("userLng");
+      }
+    };
+
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
@@ -40,7 +52,7 @@ Template.artDest.onCreated(function() {
         var artMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "Title: " + marker.title + "<br> Artist: " + marker.artist + "<br> Created: " + marker.created + "<br> Description:" + marker.description + "<br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'>get directions</a>"
+          content: "Title: " + marker.title + "<br> Artist: " + marker.artist + "<br> Created: " + marker.created + "<br> Description:" + marker.description + "<br><a href='https://www.google.com/maps/dir/" + destLat() + ", " + destLng()  + "/" + marker.location[1] + ", " + marker.location[0] + "'>get directions</a>"
         });
 
         var infowindow = null;
