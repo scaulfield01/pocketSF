@@ -24,6 +24,9 @@ Template.mobileFoodsDestinations.helpers({
          }
        }
     }
+  },
+  userDestination: function(){
+    return Session.get("userDest");
   }
 });
 
@@ -43,6 +46,8 @@ Template.mobileFoodsDestinations.onCreated(function() {
         return Session.get("userLng");
       }
     };
+
+
 
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {
