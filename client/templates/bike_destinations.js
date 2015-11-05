@@ -48,8 +48,8 @@ Template.bikeDestinations.onCreated(function() {
       }
     };
 
-  Meteor.call('getBikeData', function(err,res){
-    GoogleMaps.ready('destinationsMap', function(map) {
+  GoogleMaps.ready('destinationsMap', function(map) {
+    Meteor.call('getBikeData', function(err,res){
       var icon = '/icon/bicycle-parking-teal.png'
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {

@@ -27,10 +27,10 @@ Template.artmap.helpers({
 
 Template.artmap.onCreated(function() {
 
-  Meteor.call('getArtData', function(err,res){
-    var arts = res
+  GoogleMaps.ready('artMaps', function(map) {
+    Meteor.call('getArtData', function(err,res){
+      var arts = res
 
-    GoogleMaps.ready('artMaps', function(map) {
 
       var markers = []
 

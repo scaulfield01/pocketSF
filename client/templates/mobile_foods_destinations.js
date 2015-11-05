@@ -38,8 +38,8 @@ Template.mobileFoodsDestinations.helpers({
 
 Template.mobileFoodsDestinations.onCreated(function() {
 
-  Meteor.call('getMobileFoodData', function(err,res){
-    GoogleMaps.ready('foodsDestinationsMap', function(map) {
+  GoogleMaps.ready('foodsDestinationsMap', function(map) {
+    Meteor.call('getMobileFoodData', function(err,res){
 
     var destLat = function() {
       if(Session.get("userLat")) {

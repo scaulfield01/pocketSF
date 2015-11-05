@@ -36,8 +36,8 @@ Template.artDest.helpers({
 
 Template.artDest.onCreated(function() {
 
-  Meteor.call('getArtData', function(err,res){
-    GoogleMaps.ready('artDestMap', function(map) {
+  GoogleMaps.ready('artDestMap', function(map) {
+    Meteor.call('getArtData', function(err,res){
 
     var destLat = function() {
       if(Session.get("userLat")) {
