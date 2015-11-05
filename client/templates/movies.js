@@ -28,26 +28,35 @@ Template.moviesMap.onCreated(function() {
         map: map.instance,
         icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
       });
+
       markers.forEach(function(marker) {
-        debugger
-        var LatLng = new google.maps.LatLng(marker.movieGeo.latitude, marker.movieGeo.longitude);
-        debugger
+
+        var movieGeoObj = marker.movieGeo
+        var LatLng = new google.maps.LatLng(movieGeoObj.latitude, movieGeoObj.longitude);
+
         var movieLocationMarker = new google.maps.Marker({
+
           position: LatLng,
           map: map.instance,
-          content: "<strong>Movie Title</strong> + "
+          content: "<strong> Movie Title: </strong> "+ marker.title +"<br>"+ "<strong>Year: </strong>"+ marker.releaseYear + "<br>" + "<strong>Studio: </strong>" + marker.productionCompany + "<br>" + "<strong>Director: </strong>" + marker.director + "<br>" + "<strong>Location: </strong>" + marker.location + "<br><strong>Fun Facts: </strong>" + marker.funFact + "<br>" + "<a href='http://www.rottentomatoes.com/search/?search=" + marker.title + "'" + ">" + "Additional Info" + "</a>"
+        });
+      var infowindow = null;
+      infowindow = new google.maps.InfoWindow({
+        content: "loading..."
+      })
+      google.maps.event.addListener(movieLocationMarker, 'click', function() {
+
+        infowindow.setContent(this.content);
+        infowindow.open(map.instance, this);
         });
       });
-
-        var infowindow = null;
-        infowindow = new google.maps.InfoWindow({
-          content: "loading..."
-        })
-        google.maps.event.addListener(movieLocationMarker, 'click', function() {
-          infowindow.setContent(this.content);
-          infowindow.open(map.instance, this);
   });
 });
+
+
+
+
+
       // for (var i = 0 ; i <  res.length ;  i++) {
 
       //   var marker = res[i]
