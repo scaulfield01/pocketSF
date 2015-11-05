@@ -3,7 +3,7 @@ p {
   font-family: Futura, 'Open Sans', sans-serif;
 }
 
-nav {
+/*nav {
   height: 5em;
 }
 
@@ -11,7 +11,7 @@ nav {
   font-size: 1.3em;
   height: 5em;
   margin-top: 10px;
-}
+}*/
 
 .map-legend {
   width: 100%;
@@ -174,7 +174,7 @@ span.glyphicon-warning-sign {
 }
 
 .logo {
-  width: 105px;
+  width: 80px;
   height: auto;
   position: relative;
   bottom: 23px;
