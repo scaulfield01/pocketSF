@@ -200,14 +200,16 @@ span.glyphicon-warning-sign {
 /*media q's*/
 
 @media screen and (max-width: 800px) {
-  .address input{
-    width: 100px;
-    margin-top: 14px;
+  .address input[type=text] {
+    width: 12em;
   }
-  .form-control {
-    width: 500px;
-    margin-top: 14px;
+  .address input[type=submit] {
+    width: 8em;
   }
+  .btn-primary {
+    width: 8em;
+  }
+
 }
 
 /*bounce */
