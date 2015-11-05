@@ -12,7 +12,13 @@ Template.artmap.helpers({
     if (GoogleMaps.loaded()) {
       return {
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
-        zoom: 16
+        zoom: 17,
+        zoomControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+        },
+        streetViewControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+        }
       }
     };
   }
@@ -29,7 +35,7 @@ Template.artmap.onCreated(function() {
       var markers = []
 
       for (var i = 0 ; i <  arts.length ;  i++) {
-
+        var icon = '/icon/public-art-red.png'
         var marker = res[i]
         var content = "<strong>Title: </strong>" + marker.title + "<br> <strong>Artist: </strong>" + marker.artist + "<br> <strong>Created: </strong>" + marker.created + "<br> <strong>Description:</strong>" + marker.description + "<br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.location[1] + ", " + marker.location[0] + "'><strong>get directions</strong></a>"
         var LatLng = new google.maps.LatLng(marker.location[1], marker.location[0])
@@ -37,8 +43,8 @@ Template.artmap.onCreated(function() {
         var artMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: content
-
+          content: content,
+          icon: icon
         });
 
         var infowindow = null;

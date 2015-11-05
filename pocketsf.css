@@ -3,20 +3,36 @@ p {
   font-family: Futura, 'Open Sans', sans-serif;
 }
 
+nav {
+  height: 5em;
+}
+
+.navbar-right a {
+  font-size: 1.3em;
+  height: 5em;
+  margin-top: 10px;
+}
+
 .map-legend {
   width: 100%;
-  height: 15%;
+  height: 14%;
   border-radius: 0 0 0 8px;
   border-top: 1px gray solid;
   position: absolute;
   bottom: 0;
-  background-color: #f2f2f2;
+  background-color: #101010;
   border-radius: 100% 100% 0 0;
   text-align: center;
 }
 
+.map-legend-subtitle {
+  display: inline;
+  color: white;
+}
+
 .map-legend h3 {
-  margin-top: 45px;
+  margin-top: 30px;
+  color: white;
 }
 
 .list-group p {
@@ -155,6 +171,14 @@ span.glyphicon-warning-sign {
 
 .col-md-4 {
   padding-top: 1.5em;
+}
+
+.logo {
+  width: 105px;
+  height: auto;
+  position: relative;
+  bottom: 23px;
+  /*margin-bottom: 20px;*/
 }
 
 /*#105b63 #bd4932 #ffd34e #5c832f #C7C0B6*/

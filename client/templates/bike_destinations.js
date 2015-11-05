@@ -20,7 +20,13 @@ Template.bikeDestinations.helpers({
       if (Session.get("userLat") && Session.get("userLng")) {
          return {
             center: new google.maps.LatLng(destLat(), destLng()),
-            zoom: 16
+            zoom: 17,
+            zoomControlOptions: {
+              position: google.maps.ControlPosition.RIGHT_CENTER
+            },
+            streetViewControlOptions: {
+              position: google.maps.ControlPosition.RIGHT_CENTER
+            }
          }
        }
     }
@@ -52,7 +58,7 @@ Template.bikeDestinations.onCreated(function() {
         var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "<strong>Name:</strong> " + marker.name + " <br><strong> Spaces:</strong> " + marker.spaces + "<br> <strong>Address: </strong><a href='http://maps.google.com/?q=" + marker.address + " San Francisco, CA"+ "'>" + marker.address + " San Francisco, CA" + "</a><br><a href='https://www.google.com/maps/dir/" + destLat() + ", " + destLng() + "/" + marker.address + "'><strong>Get Directions<strong></a>",
+          content: "<strong>Name:</strong> " + marker.name + " <br><strong> Spaces:</strong> " + marker.spaces + "<br> <strong>Address: </strong><a href='http://maps.google.com/?q=" + marker.address + " San Francisco, CA"+ "'>" + marker.address + " San Francisco, CA" + "</a><br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + ", " + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'><strong>Get Directions<strong></a>",
           icon: icon
           // content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + " San Francisco, CA"+ "'>" + marker.address + " San Francisco, CA" + "</a>"
         });
@@ -82,7 +88,6 @@ Template.bikeDestinations.onCreated(function() {
       map: map.instance,
       icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
       });
-
     });
   });
 });

@@ -14,7 +14,13 @@ Template.mobileFoodsMaps.helpers({
     if (GoogleMaps.loaded()) {
       return {
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
-        zoom: 16
+        zoom: 17,
+        zoomControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+        },
+        streetViewControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+        }
       }
     }
   }

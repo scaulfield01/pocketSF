@@ -13,7 +13,13 @@ Template.moviesMap.helpers({
     if (GoogleMaps.loaded()) {
       return {
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
-        zoom: 16
+        zoom: 17,
+        zoomControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+        },
+        streetViewControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER
+        }
       }
     };
   }
@@ -30,7 +36,6 @@ Template.moviesMap.onCreated(function() {
       });
 
       markers.forEach(function(marker) {
-
         if (marker.releaseYear >= 2000) {
             var icon = '/icon/cinema-yellow.png';
         } else if (marker.releaseYear >= 1950) {
@@ -61,20 +66,3 @@ Template.moviesMap.onCreated(function() {
       });
   });
 });
-
-
-
-
-
-      // for (var i = 0 ; i <  res.length ;  i++) {
-
-      //   var marker = res[i]
-      //   // var filmGeocode = findGeoCode(marker.location)
-
-      //   var LatLng = new google.maps.LatLng(33, 122)
-      //   var movieMarker = new google.maps.Marker({
-      //     position: LatLng,
-      //     map: map.instance
-
-
-
