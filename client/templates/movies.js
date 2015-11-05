@@ -31,6 +31,14 @@ Template.moviesMap.onCreated(function() {
 
       markers.forEach(function(marker) {
 
+        if (marker.releaseYear >= 2000) {
+            var icon = '/icon/cinema-yellow.png';
+        } else if (marker.releaseYear >= 1950) {
+            var icon = '/icon/cinema-purple.png';
+        } else {
+            var icon = '/icon/cinema-brown.png';
+        }
+
         var movieGeoObj = marker.movieGeo
         var LatLng = new google.maps.LatLng(movieGeoObj.latitude, movieGeoObj.longitude);
 
@@ -38,6 +46,7 @@ Template.moviesMap.onCreated(function() {
 
           position: LatLng,
           map: map.instance,
+          icon: icon,
           content: "<strong> Movie Title: </strong> "+ marker.title +"<br>"+ "<strong>Year: </strong>"+ marker.releaseYear + "<br>" + "<strong>Studio: </strong>" + marker.productionCompany + "<br>" + "<strong>Director: </strong>" + marker.director + "<br>" + "<strong>Location: </strong>" + marker.location + "<br><strong>Fun Facts: </strong>" + marker.funFact + "<br>" + "<a href='http://www.rottentomatoes.com/search/?search=" + marker.title + "'" + ">" + "Additional Info" + "</a>"
         });
       var infowindow = null;
