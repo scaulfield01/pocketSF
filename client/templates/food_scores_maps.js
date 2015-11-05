@@ -30,22 +30,20 @@ Template.foodScoresMaps.onCreated(function(){
 
   GoogleMaps.ready('foodScoresMap', function(map) {
     var markers = FoodScores.find();
-
     var userMarker = new google.maps.Marker({
       position: map.options.center,
       map: map.instance,
       icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
     });
 
-
     markers.forEach(function (marker) {
 
       if (marker.insp_score >= 95) {
-          var icon = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+          var icon = '/icon/restaurant-green.png';
       } else if (marker.insp_score >= 90) {
-          var icon = 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png';
+          var icon = '/icon/restaurant-yellow.png';
       } else {
-          var icon = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+          var icon = '/icon/restaurant-red.png';
       }
 
       var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude);

@@ -27,16 +27,16 @@ Template.bikeMaps.onCreated(function() {
   GoogleMaps.ready('exampleMap', function(map) {
     Meteor.call('getBikeData', function(err, res){
       // create array of markers
-      console.log("hi")
-      var markers = []
+      var markers = [];
+      var icon = '/icon/bicycle-parking-teal.png'
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
         var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-
         var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "<strong>Name:</strong> " + marker.name + " <br> <strong>Spaces: </strong>" + marker.spaces + "<br> <strong>Address: </strong>" + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>" + "<a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'><strong>get directions</strong></a>"
+          content: "<strong>Name:</strong> " + marker.name + " <br> <strong>Spaces: </strong>" + marker.spaces + "<br> <strong>Address: </strong>" + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>" + "<a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'><strong>get directions</strong></a>",
+          icon: icon
         });
 
         var infowindow = null;

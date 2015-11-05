@@ -30,10 +30,12 @@ Template.mobileFoodsMaps.onCreated(function(){
         for (var i = 0 ; i <  res.length ;  i++) {
           var marker = res[i]
           var content = "<strong>Vendor: </strong>" + marker.vendor + " <br> <strong>Info: </strong>" + marker.info + "<br> <strong>Address: </strong>" + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br><strong>Hours: </strong>" + marker.startTime + "- " + marker.endTime + "<br><strong>Day(s) Open: </strong>" + marker.dayOfWeek + "<br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'><strong>get directions</strong></a>"
+          var icon = '/icon/food-truck-red.png'
           var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
 
           var mobileFoodMarker = new google.maps.Marker({
             position: LatLng,
+            icon: icon,
             map: map.instance,
             content: content
           });
