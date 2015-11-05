@@ -209,7 +209,18 @@ span.glyphicon-warning-sign {
   .btn-primary {
     width: 8em;
   }
-
+  .map-legend-subtitle {
+    display: inline;
+    color: white;
+    position: relative;
+    bottom: 10px;
+    font-size: 9px;
+  }
+  .map-legend h3 {
+    position: relative;
+    font-size: 18px;
+    bottom: 10px;
+  }
 }
 
 /*bounce */
