@@ -27,14 +27,15 @@ Template.bikeMaps.onCreated(function() {
   GoogleMaps.ready('exampleMap', function(map) {
     Meteor.call('getBikeData', function(err, res){
       // create array of markers
-      var markers = []
+      var markers = [];
+      var icon = '/icon/bicycle-parking-teal.png'
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
         var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-
         var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
+          icon: icon,
           content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>" + "<a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'>get directions</a>"
         });
 

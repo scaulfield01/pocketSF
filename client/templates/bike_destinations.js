@@ -32,7 +32,7 @@ Template.bikeDestinations.onCreated(function() {
 
   Meteor.call('getBikeData', function(err,res){
     GoogleMaps.ready('destinationsMap', function(map) {
-
+      var icon = '/icon/bicycle-parking-teal.png'
       var markers = []
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
@@ -40,6 +40,7 @@ Template.bikeDestinations.onCreated(function() {
         var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
+          icon: icon,
           content: "Name: " + marker.name + " <br> Spaces: " + marker.spaces + "<br> Address: " + "<a href='http://maps.google.com/?q=" + marker.address + " San Francisco, CA"+ "'>" + marker.address + " San Francisco, CA" + "</a>"
         });
 
