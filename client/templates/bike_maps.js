@@ -41,7 +41,7 @@ Template.bikeMaps.onCreated(function() {
         var bikeParkingMarker = new google.maps.Marker({
           position: LatLng,
           map: map.instance,
-          content: "<strong>Name:</strong> " + marker.name + " <br> <strong>Spaces: </strong>" + marker.spaces + "<br> <strong>Address: </strong>" + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>" + "<a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'><strong>get directions</strong></a>",
+          content: "<strong>Name:</strong> " + marker.name + " <br> <strong>Spaces: </strong>" + marker.spaces + "<br> <strong>Address: </strong>" + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br>" + "<a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'><strong>GET DIRECTIONS</strong></a>",
           icon: icon
         });
 
