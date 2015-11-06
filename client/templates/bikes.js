@@ -1,5 +1,6 @@
 Template.bikes.events({
   "submit .address": function(e){
+    console.log("bu")
     e.preventDefault();
     var text = e.target.destination.value + ", San Francisco";
     Meteor.call('findGeoCode', text, function(err, res) {
