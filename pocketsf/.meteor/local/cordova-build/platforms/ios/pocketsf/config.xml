@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.idhiba701nessw9a390wg" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <name>pocketsf</name>
+    <description>New Meteor Mobile App</description>
+    <author email="n/a" href="n/a">A Meteor Developer</author>
+    <preference name="webviewbounce" value="false" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="deployment-target" value="7.0" />
+    <content src="index.html" />
+    <access launch-external="true" origin="tel:*" />
+    <access launch-external="true" origin="geo:*" />
+    <access launch-external="true" origin="mailto:*" />
+    <access launch-external="true" origin="sms:*" />
+    <access launch-external="true" origin="market:*" />
+    <access origin="file:*" />
+    <access origin="cdv:*" />
+    <access origin="gap:*" />
+    <access origin="http://meteor.local/*" />
+</widget>

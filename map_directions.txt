@@ -1,0 +1,22 @@
+- create Coordinates collection.
+- access all coordinates with a Coordinates.find().
+- Meteor tracker
+- User's current location, Destination location, and all bike rack coordinates.
+
+
+- If user selects "Near me",
+  - Use location calculation to compare current location with all bike rack coordinates and return the three nearest bike racks.
+  - On map, allow user to select which bike rack (out of closest 3) they want to be directed to.
+  - Once destination is chosen, instantiate new google maps direction with origin as their current location and destination as the nearest bike rack that they have selected.
+  - User will be directed to the bike rack they have chosen.
+
+
+- If user selects "Near my destination",
+  - Use location calculation to determine the 3 closest bike rack coordinates to the user's destination.
+  - Allow the user to select a bike rack destination (out of 3 choices)
+  - Once destination is selected, instantiate new google maps directions with origin as the user's current location and destination as the bike rack coordinates they have chosen.
+  - User will be directed to the bike rack they have chosen.
+
+
+- If we want, we could store user's bike direction history as data and suggest certain city events / restaurants that are along their normal bike paths.
+- Basically take into account their most used paths, and suggest certain stops / events based on their most popular routes.

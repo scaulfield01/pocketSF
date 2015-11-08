@@ -1,0 +1,16 @@
+<template name="moviesMap">
+  <div class="mapper">
+    <div class="map-container">
+      {{> googleMap name="moviesMap" options=moviesMapOptions}}
+    </div>
+  </div>
+  <div class="map-legend">
+    <h3>Nearby Film Locations</h3>
+    <div class="map-legend-subtitle">
+      <img src="/icon/cinema-yellow.png">Released after 2000
+      <img src="/icon/cinema-purple.png">Released after 1950
+      <img src="/icon/cinema-brown.png">Released after 1900
+    </div>
+  </div>
+</template>
+

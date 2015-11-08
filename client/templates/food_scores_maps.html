@@ -1,0 +1,23 @@
+<template name="foodScoresMaps">
+  <div class="mapper">
+    <div class="map-container">
+      {{> googleMap name="foodScoresMap" options=foodScoresMapOptions}}
+    </div>
+  </div>
+  <div class="map-legend">
+    <h3>Nearby Food Scores</h3>
+    <div class="map-legend-subtitle">
+      <img src="/icon/restaurant-green.png">Inspection score > 95
+      <img src="/icon/restaurant-yellow.png">Inspection score > 90
+      <img src="/icon/restaurant-red.png">Inspection score > 85
+    </div>
+  </div>
+</template>
+
+
+
+
+
+
+
+
