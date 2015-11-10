@@ -202,7 +202,7 @@ span.glyphicon-warning-sign {
 
 /*media q's*/
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .address input[type=text] {
     width: 12em;
   }
