@@ -18,7 +18,7 @@ p {
   height: 14%;
   border-radius: 0 0 0 8px;
   border-top: 1px gray solid;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-color: #101010;
   border-radius: 100% 100% 0 0;
@@ -45,7 +45,7 @@ p {
 .map-container{
   width:100%;
   max-width: 100%;
-  height: 91vh;
+  height: 90vh;
   z-index: 99;
 }
 
