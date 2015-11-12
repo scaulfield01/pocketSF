@@ -11,6 +11,18 @@ Template.bikeMaps.helpers({
     var findClientLongitude = function() {
     return Geolocation.currentLocation().coords.longitude}
 
+    var clientDistance = function() {
+      return Math.sqrt(Math.pow(Geolocation.currentLocation().coords.latitude - 37.7833, 2) + Math.pow(Geolocation.currentLocation().coords.longitude - 122.4167, 2))
+    }
+
+    var findBounds = function() {
+      return Math.sqrt(Math.pow(37.7833 - 37.7833, 2) + Math.pow(122.4167 - 122.4167, 2))
+    }
+
+    console.log(clientDistance())
+    console.log(findBounds())
+
+
     if (GoogleMaps.loaded()) {
       return {
         center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
