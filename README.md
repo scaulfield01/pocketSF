@@ -1,3 +1,5 @@
+Pocket SF is a responsive web app that leverages public city data and Google Maps to find practical resources in SF
+
 SF Gov showcase: http://apps.sfgov.org/showcase/apps/pocketsf/
 
 Hosted at: http://www.pocketsf.io/
