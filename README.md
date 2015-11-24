@@ -1,32 +1,32 @@
-Team goals
-Individual goals:
-Beautiful application that we can show off.
-App allows users to learn something new about the city.
+SF Gov showcase: http://apps.sfgov.org/showcase/apps/pocketsf/
+Hosted at: http://www.pocketsf.io/
+Completed features: Bike parking, public art, mobile food, restaurant scores
+Future features: movie locations
+
+Team goals:
+
+Beautiful application that we can show off
+App allows users to learn something new about the city
 User testing outside of our group
 Fully functional and complete project that we can show to employers
 Make app useful
-Explore relevant technologies (to the job market)
-Even if it’s serving one dataset or one service, make it beautiful to show to mom
-Explore the JS realm more specifically
-Meteor is an opportunity
+Explore relevant technologies
+Explore the JS realm
+Meteor is an opportunity to learn more
 Stephen wishes to work on product management
 Keep it mellow
 Submit the app to the city
-Data science (meh)
-Learn more about Meteor stack 
-Explore Open Data SF
+Explore SF Open Data
 
-How to use the data/brainstorming the product:
+How to use the data/Let's brainstorm the product:
 
-bicycle parking data/ info.
+bicycle parking data/ info
 google maps api
 Movies entertainment data.
 address difficulty on parking in public parking spots because of unclear restrictions
 
-Working agreement:
-What is the outcome we hope for?
 
-Schedule
+Schedule: 
 Stephen: open schedule (lives in SOMA), except Saturday night
 Steven: Open schedule, tends to be more a daytime worker. Sat/ Sun prefer to start 9:30 pm
 Max: Burlingame. Morning person. Wakes up at 5:45. Sleeps at 10:30pm. Can be flexible. Wants time off Sunday morning. 
@@ -140,20 +140,4 @@ Bicycle parking (no map)
 - SF Civic Art Collection
 - Restaurant Scores
 
-
-
-
-Our first goal : find the nearest bike rack near destination or self 
-
-A tailored experience to our users 
-crime (with bikes )
-parking availability 
-foodies who are concern about health ratings 
-parking availability 
-disabled people 
-foodies who are concern about health ratings 
-
-
-
-
-
+Our MVP goal: find the nearest bike rack near destination or self 
