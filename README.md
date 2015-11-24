@@ -5,18 +5,18 @@ Future features: movie locations
 
 Team goals:
 
-Beautiful application that we can show off
-App allows users to learn something new about the city
-User testing outside of our group
-Fully functional and complete project that we can show to employers
-Make app useful
-Explore relevant technologies
-Explore the JS realm
-Meteor is an opportunity to learn more
-Stephen wishes to work on product management
-Keep it mellow
-Submit the app to the city
-Explore SF Open Data
+* Beautiful application that we can show off
+* App allows users to learn something new about the city
+* User testing outside of our group
+* Fully functional and complete project that we can show to employers
+* Make app useful
+* Explore relevant technologies
+* Explore the JS realm
+* Meteor is an opportunity to learn more
+* Stephen wishes to work on product management
+* Keep it mellow
+* Submit the app to the city
+* Explore SF Open Data
 
 How to use the data/Let's brainstorm the product:
 
