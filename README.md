@@ -137,6 +137,6 @@ Bicycle parking (no map)
 Our MVP goal: find the nearest bike rack near destination or self
 
 Screenshots:
-![alt tag](https://github.com/scaulfield01/pocketSF/tree/master/public/images/pocket1.png)
-![alt tag](https://github.com/scaulfield01/pocketSF/tree/master/public/images/pocket2.png)
-![alt tag](https://github.com/scaulfield01/pocketSF/tree/master/public/images/pocket3.png)
+![alt tag](https://github.com/scaulfield01/pocketSF/blob/master/public/images/pocket1.png)
+![alt tag](https://github.com/scaulfield01/pocketSF/blob/master/public/images/pocket2.png)
+![alt tag](https://github.com/scaulfield01/pocketSF/blob/master/public/images/pocket3.png)
