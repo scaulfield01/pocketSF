@@ -92,36 +92,27 @@ Great git workflow communication.
 One Master branch / Development branch / Feature branches => fork off development branch.
 Research into the additional tools (jenkins and travis )
 
-Set of user stories that constitutes MVP:
-As a user you shall be able to find bike parking around a location 
-As a user you shall be able to find all restaurants with adequate health scores / check in real time 
-As a user you shall be able to find parking restrictions through visual representation.
-*As a user you shall be able to find upcoming community events in my location. 
-As a user I would like to know how safe the neighborhood i am walkthough is .
-(los angeles crime ) 
-As a user I would like some playful  functionality around pocket 
-As a user I could pin comments on to a map 
-Tech stack and architecture:
-Mobile 
-Web
-Meteor (android, react, 
-backbone 
-Ruby backend by leveraging the gem
-Designing the layout and the template  
+Set of user stories that constitutes ideal product:
+* As a user you shall be able to find bike parking around a location 
+* As a user you shall be able to find all restaurants with adequate health scores / check in real time 
+* As a user you shall be able to find parking restrictions through visual representation.
+* As a user you shall be able to find upcoming community events in my location. 
+* As a user I would like some playful  functionality around pocket 
+* As a user I could pin comments on to a map 
 
 Roles
-Steven : Design Ninja, Timeboxer
-Stephen : Product Manager Knight 
-Max : Facilitator and UX Design Ninja 
+* Steven : Design Ninja, Timeboxer
+* Stephen : Product Manager Knight 
+* Max : Facilitator and UX Design Ninja 
 
 GOALS FOR DAY 
--Better understand with what data we want to work with X
--define the app 
+- Better understand with what data we want to work with X
+- define the app 
 	- product road map 
 	-one or two liner that describes its usefulness 
--have a git repo created X
--make a decision on the stack (meteor) X
--scope whats the hardest thing to do X
+- have a git repo created X
+- make a decision on the stack (meteor) X
+- scope whats the hardest thing to do X
 - explore and decide on jenkin or travis or neither 
 
 
