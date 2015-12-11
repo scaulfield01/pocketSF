@@ -1,4 +1,4 @@
-Template.bikeDestinations.onRendered(function() {
+Template.bikeDestinations.onRendered( function() {
   GoogleMaps.load();
 });
 
@@ -9,7 +9,6 @@ Template.bikeDestinations.helpers({
         return Session.get("userLat");
       }
     };
-
     var destLng = function() {
       if(Session.get("userLng")) {
         return Session.get("userLng");
@@ -23,35 +22,35 @@ Template.bikeDestinations.helpers({
             zoom: 17,
             zoomControlOptions: {
               position: google.maps.ControlPosition.RIGHT_CENTER
-            },
+          },
             streetViewControlOptions: {
               position: google.maps.ControlPosition.RIGHT_CENTER
-            }
+          }
          }
        }
     }
-
   }
 });
 
 Template.bikeDestinations.onCreated(function() {
 
-    var destLat = function() {
-      if(Session.get("userLat")) {
-        return Session.get("userLat");
-      }
-    };
+  var destLat = function() {
+    if(Session.get("userLat")) {
+      return Session.get("userLat");
+    }
+  };
 
-    var destLng = function() {
-      if(Session.get("userLng")) {
-        return Session.get("userLng");
-      }
-    };
+  var destLng = function() {
+    if(Session.get("userLng")) {
+      return Session.get("userLng");
+    }
+  };
 
   GoogleMaps.ready('destinationsMap', function(map) {
     Meteor.call('getBikeData', function(err,res){
       var icon = '/icon/bicycle-parking-teal.png'
-      var markers = []
+      var markers = [];
+
       for (var i = 0 ; i <  res.length ;  i++) {
         var marker = res[i]
         var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
@@ -74,7 +73,6 @@ Template.bikeDestinations.onCreated(function() {
       for (var i = 0; i < markers.length; i++) {
         // add click listeners to all markers
         var marker = markers[i]
-
 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.setContent(this.content);

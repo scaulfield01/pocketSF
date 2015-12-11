@@ -21,10 +21,6 @@ Template.bikeMaps.helpers({
       return Math.sqrt(Math.pow(37.701267 - 37.7833, 2) + Math.pow(-122.443305 - 122.4167, 2))
     }
 
-    console.log(clientDistance())
-    console.log(findBounds())
-
-
     if (GoogleMaps.loaded()) {
       if (clientDistance() > findBounds()) {
         console.log("Inside the bounds")
@@ -40,7 +36,7 @@ Template.bikeMaps.helpers({
       }
     } else {
       console.log("Outside the bounds")
-              return {
+        return {
         center: new google.maps.LatLng(37.7833, -122.4167),
         zoom: 13,
         zoomControlOptions: {
