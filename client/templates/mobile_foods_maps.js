@@ -54,50 +54,43 @@ Template.mobileFoodsMaps.helpers({
   }
 });
 
-Template.mobileFoodsMaps.onCreated(function(){
+Template.mobileFoodsMaps.onCreated( function () {
+  GoogleMaps.ready('mobileFoodsMap', function (map) {
 
-    GoogleMaps.ready('mobileFoodsMap', function(map) {
+    var markers = MobileFoods.find();
+    // Set client marker at current location.
+    var userMarker = new google.maps.Marker({
+      position: map.options.center,
+      map: map.instance,
+      icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+    });
 
-      Meteor.call('getMobileFoodData', function(err, res){
+    markers.forEach( function (marker) {
+      var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude);
+      var content = "<strong>Vendor: </strong>" + marker.vendor +
+        " <br> <strong>Info: </strong>" + marker.info +
+        "<br> <strong>Address: </strong>" + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address +
+        "</a><br><strong>Hours: </strong>" + marker.startTime + "- " + marker.endTime +
+        "<br><strong>Day(s) Open: </strong>" + marker.dayOfWeek +
+        "<br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'><strong>GET DIRECTIONS</strong></a>"
+      var icon = '/icon/food-truck-red.png'
 
-        var markers = [];
-        for (var i = 0 ; i <  res.length ;  i++) {
-          var marker = res[i]
-          var content = "<strong>Vendor: </strong>" + marker.vendor + " <br> <strong>Info: </strong>" + marker.info + "<br> <strong>Address: </strong>" + "<a href='http://maps.google.com/?q=" + marker.address + "'>" + marker.address + "</a><br><strong>Hours: </strong>" + marker.startTime + "- " + marker.endTime + "<br><strong>Day(s) Open: </strong>" + marker.dayOfWeek + "<br><a href='https://www.google.com/maps/dir/" + Geolocation.currentLocation().coords.latitude + "," + Geolocation.currentLocation().coords.longitude + "/" + marker.address + "'><strong>GET DIRECTIONS</strong></a>"
-          var icon = '/icon/food-truck-red.png'
-          var LatLng = new google.maps.LatLng(marker.latitude, marker.longitude)
-
-          var mobileFoodMarker = new google.maps.Marker({
-            position: LatLng,
-            icon: icon,
-            map: map.instance,
-            content: content
-          });
-
-          var infowindow = null;
-          infowindow = new google.maps.InfoWindow({
-          content: "loading..."
-          })
-
-          markers.push(mobileFoodMarker);
-        };
-        for (var i = 0; i < markers.length; i++) {
-          // add click listeners to all markers
-          var marker = markers[i]
-
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent(this.content);
-            infowindow.open(map.instance, this);
-          });
-        };
-
-        var userMarker = new google.maps.Marker({
-        position: map.options.center,
+      var mobileFoodMarker = new google.maps.Marker({
+        position: LatLng,
+        icon: icon,
         map: map.instance,
-        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
-        });
+        content: content
+      });
+      var infowindow = null;
+      infowindow = new google.maps.InfoWindow({
+        content: "loading..."
+      });
 
-    })
+      google.maps.event.addListener(mobileFoodMarker, 'click', function () {
+        infowindow.setContent(this.content);
+        infowindow.open(map.instance, this);
+      });
+    });
   });
 });
 
