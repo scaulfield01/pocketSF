@@ -1,4 +1,4 @@
-Template.bikeDestinations.onRendered( function() {
+Template.bikeDestinations.onRendered(function() {
   GoogleMaps.load();
 });
 

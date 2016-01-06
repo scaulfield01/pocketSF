@@ -74,6 +74,6 @@ Template.mobileFoodsDestinations.onCreated( function () {
         infowindow.setContent(this.content);
         infowindow.open(map.instance, this);
       });
-    });
+    })
   });
 });

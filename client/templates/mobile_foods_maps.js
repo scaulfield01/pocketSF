@@ -5,18 +5,18 @@ Template.mobileFoodsMaps.onRendered(function () {
 Template.mobileFoodsMaps.helpers({
   mobileFoodsMapOptions: function () {
     var findClientLatitude = function() {
-      return Geolocation.currentLocation().coords.latitude
+      return Geolocation.currentLocation().coords.latitude;
     };
     var findClientLongitude = function() {
-      return Geolocation.currentLocation().coords.longitude
+      return Geolocation.currentLocation().coords.longitude;
     };
 
     var clientDistance = function() {
-      return Math.sqrt(Math.pow(findClientLatitude() - 37.7833, 2) + Math.pow(findClientLongitude() - 122.4167, 2))
+      return Math.sqrt(Math.pow(findClientLatitude() - 37.7833, 2) + Math.pow(findClientLongitude() - 122.4167, 2));
     }
 
     var findBounds = function() {
-      return Math.sqrt(Math.pow(37.701267 - 37.7833, 2) + Math.pow(-122.443305 - 122.4167, 2))
+      return Math.sqrt(Math.pow(37.701267 - 37.7833, 2) + Math.pow(-122.443305 - 122.4167, 2));
     }
 
     console.log(clientDistance())
@@ -25,31 +25,30 @@ Template.mobileFoodsMaps.helpers({
 
     if (GoogleMaps.loaded()) {
       if (clientDistance() > findBounds()) {
-        console.log("Inside the bounds")
+        console.log("Inside the bounds");
         return {
-        center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
-        zoom: 17,
-        zoomControlOptions: {
-          position: google.maps.ControlPosition.RIGHT_CENTER
-        },
-        streetViewControlOptions: {
-          position: google.maps.ControlPosition.RIGHT_CENTER
+          center: new google.maps.LatLng(findClientLatitude(), findClientLongitude()),
+          zoom: 17,
+          zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+          },
+          streetViewControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+          }
+        }
+      } else {
+        console.log("Outside the bounds");
+        return {
+          center: new google.maps.LatLng(37.7833, -122.4167),
+          zoom: 13,
+          zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+          },
+          streetViewControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_CENTER
+          }
         }
       }
-    } else {
-      console.log("Outside the bounds")
-              return {
-        center: new google.maps.LatLng(37.7833, -122.4167),
-        zoom: 13,
-        zoomControlOptions: {
-          position: google.maps.ControlPosition.RIGHT_CENTER
-        },
-        streetViewControlOptions: {
-          position: google.maps.ControlPosition.RIGHT_CENTER
-        }
-      }
-    }
-
     };
   }
 });
